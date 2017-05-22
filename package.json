@@ -1,0 +1,29 @@
+{
+  "name": "weeb-games",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server/server.js",
+  "scripts": {
+    "build": "npm run build-babel",
+    "build-babel": "babel src --out-dir dist --source-maps --presets=es2015,react",
+    "build-babel-watch": "babel src --out-dir dist --source-maps --presets=es2015,react --watch",
+    "clean": "rm -r ./dist",
+    "start": "npm run build && node dist/server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "promise": "^7.1.1",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "node-sass": "^4.5.3"
+  }
+}

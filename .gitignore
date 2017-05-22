@@ -1,0 +1,9 @@
+# node standard ignores
+node_modules/
+
+# dist folder
+dist/
+
+# user database
+# - this will be auto-initialised if not present.
+weebpoints.db
