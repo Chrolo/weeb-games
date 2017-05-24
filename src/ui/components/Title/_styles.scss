@@ -1,0 +1,11 @@
+@import '../../styles/fonts';
+
+.title {
+    font-family: #{$titleFontFamily};
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 5rem;
+    color: white;
+    width: 100%;
+    text-align: center;
+}

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "main";
+    src: local("LeviReBrushed"),
+     url("LeviReBrushed.ttf");
+}
+
+$mainFontFamily: '"main", sans-serif';
+
+//apply it to everything
+* {
+    font-family: #{$mainFontFamily};
+}
+
+$titleFontFamily: $mainFontFamily; //for now it's the same

@@ -1,0 +1,5 @@
+$break-point-medium: 460px;
+$break-point-large: 900px;
+
+$mq-medium: 'screen and (min-width: '+$break-point-medium+')';
+$mq-large: 'screen and (min-width: '+$break-point-large+')';

@@ -1,0 +1,89 @@
+//*Styles for LeaderBoard*//
+@import '../../styles/media-queries';
+//definitions:
+
+$leaderboardRowVertMargin: 10px /2; //10px between each, so half on top and bottom
+
+$leaderboardMarginStep: 30px;
+$leaderboardInitFontsize: 2rem;
+
+@function leaderboardFontSize($position) {
+    @if $position > 4{
+            $position: 4;
+    }
+
+    //Scale factor:
+    //calced for 2rem @ pos1 and 1rem @ pos4
+    $m: -1 * $leaderboardInitFontsize /3;
+    $c: 7 * $leaderboardInitFontsize /3;
+    @return $m*$position + $c;
+}
+
+@function leaderboardMarginSize($position) {
+    @if $position > 4{
+        $position: 4;
+    }
+    @return $leaderboardMarginStep * $position ;
+}
+
+//Actual styles
+
+.leader-board-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.leader-board-row {
+    border: thick solid grey;
+    background-color: white;
+    padding: 10px 20px;
+    font-size: leaderboardFontSize(4);
+    margin: $leaderboardRowVertMargin 0;
+    display: flex;
+    flex-direction: row;
+
+    &.first {
+        border: thick solid gold;
+        background-color: lighten(gold, 30%);
+    }
+
+    &.second {
+        border: thick solid silver;
+        background-color: lighten(silver, 30%);
+    }
+
+    &.third {
+        border: thick solid #CD7F32;
+        background-color: lighten(#CD7F32, 30%);
+    }
+
+    @media #{$mq-medium} {
+        margin: $leaderboardRowVertMargin leaderboardMarginSize(4);
+
+        &.first {
+            margin: $leaderboardRowVertMargin leaderboardMarginSize(1);
+            font-size:  leaderboardFontSize(1);
+        }
+
+        &.second {
+            margin: $leaderboardRowVertMargin leaderboardMarginSize(2);
+            font-size: leaderboardFontSize(2);
+        }
+
+        &.third {
+            margin: $leaderboardRowVertMargin leaderboardMarginSize(3);
+            font-size: leaderboardFontSize(3);
+        }
+    }
+}
+
+
+.leader-board-cell{
+    flex: 1 0 auto;
+    margin: 0 5px;
+
+    &.no-flex{
+        flex: 0 0 auto;
+    }
+}

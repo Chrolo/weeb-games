@@ -1,0 +1,6 @@
+.table-header{
+    border: thick solid black;
+    &>td{
+        padding: 3px 8px;
+    }
+}

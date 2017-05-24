@@ -4,6 +4,9 @@ import fs from 'fs';
 import path from 'path';
 import config from './serverConfig.js';
 
+//middleware
+import basicResponseRouter from './middleware/basicResponseSetup.js';
+
 //routes
 import indexRouter from './routes/indexPageRouter.js';
 import userRouter from './routes/userRouter.js';
@@ -11,7 +14,10 @@ import userRouter from './routes/userRouter.js';
 let app = express();
 const port = process.env['NODE_PORT'] || config.port;
 
-//TODO: configure routes so that common template always used and designs injected ontop
+//Apply middleware
+app.use('/',basicResponseRouter);
+
+// Define routes.
 app.get('/', indexRouter);
 
 //The simplest static serving:

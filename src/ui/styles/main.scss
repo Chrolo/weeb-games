@@ -1,0 +1,25 @@
+@import 'media-queries.scss';
+@import 'base.scss';
+@import 'fonts.scss';
+
+// Component Styles:
+@import './components/index.scss';
+@import './components/table.scss';
+
+//Base page setup (could be moved to another file)
+#reactRoot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 100%;
+    background-color: #444;
+}
+.page{
+    padding:10px;
+
+    width: 100%;
+    max-width: 1000px;
+    background-color: rgba(0,0,0,0.4);
+    box-shadow: 0 0 5px 10px rgba(0,0,0,0.4);
+}

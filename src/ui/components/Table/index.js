@@ -24,7 +24,7 @@ class Table extends React.Component {
         }
     }
 
-    renderRow(rowData){
+    renderRow(rowData, index){
         let innerRow;
         if( this.props.dataHeaders) {
             innerRow = this.props.dataHeaders.map((header,index)=><td key={index}>{rowData[header.key]}</td>);
@@ -33,7 +33,7 @@ class Table extends React.Component {
         }
 
         return (
-            <tr>{innerRow}</tr>
+            <tr key={index}>{innerRow}</tr>
         );
     }
 

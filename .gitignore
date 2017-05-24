@@ -1,8 +1,9 @@
 # node standard ignores
 node_modules/
 
-# dist folder
+# dist folder and generated files
 dist/
+static/style.css
 
 # user database
 # - this will be auto-initialised if not present.
