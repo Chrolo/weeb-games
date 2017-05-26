@@ -7,6 +7,19 @@ $leaderboardRowVertMargin: 10px /2; //10px between each, so half on top and bott
 $leaderboardMarginStep: 30px;
 $leaderboardInitFontsize: 2rem;
 
+//Colours#
+$gold: gold;
+$silver: silver;
+$bronze: #CD7F32;
+
+@mixin inset-border($colour) {
+        border-left-color: $colour;
+        border-right-color: $colour;
+        border-top-color: lighten($colour, 15%);
+        border-bottom-color: darken($colour, 15%);
+}
+
+
 @function leaderboardFontSize($position) {
     @if $position > 4{
             $position: 4;
@@ -32,30 +45,65 @@ $leaderboardInitFontsize: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    width: 100%;
 }
 
 .leader-board-row {
     border: thick solid grey;
+    border-radius: 2px;
     background-color: white;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
     padding: 10px 20px;
     font-size: leaderboardFontSize(4);
     margin: $leaderboardRowVertMargin 0;
     display: flex;
     flex-direction: row;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover{
+        background-color: lighten(grey, 30%);
+    }
+
+    &:focus {
+        border-style: inset;
+        background-color: lighten(grey, 15%);
+    }
 
     &.first {
-        border: thick solid gold;
-        background-color: lighten(gold, 30%);
+        background-color: lighten($gold, 20%);
+        @include inset-border($gold);
+        &:hover{
+            background-color: lighten($gold, 30%);
+        }
+        &:focus{
+            background-color: lighten($gold, 15%);
+        }
     }
 
     &.second {
-        border: thick solid silver;
-        background-color: lighten(silver, 30%);
+        border-color: silver;
+        background-color: lighten($silver, 20%);
+        @include inset-border($silver);
+        &:hover{
+            background-color: lighten($silver, 30%);
+        }
+        &:focus{
+            background-color: lighten($silver, 15%);
+        }
     }
 
     &.third {
-        border: thick solid #CD7F32;
-        background-color: lighten(#CD7F32, 30%);
+        border-color: $bronze;
+        background-color: lighten($bronze, 20%);
+        @include inset-border($bronze);
+        &:hover{
+            background-color: lighten($bronze, 30%);
+        }
+        &:focus{
+            background-color: lighten($bronze, 15%);
+        }
     }
 
     @media #{$mq-medium} {

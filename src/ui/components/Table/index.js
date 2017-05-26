@@ -9,28 +9,37 @@ class Table extends React.Component {
         //Bind 'this' to functions
         this.renderHeaderRow = this.renderHeaderRow.bind(this);
         this.renderRow = this.renderRow.bind(this);
+        this.getDataCellOrder = this.getDataCellOrder.bind(this);
+    }
+
+    getDataCellOrder(){
+        if(this.props.dataHeaders) {
+            return this.props.dataHeaders;
+        } else {
+            //figure out all the keys in the set:
+            const allKeys = this.props.data.reduce((acc,dataRow)=>{
+                Object.keys(dataRow).forEach((key)=>{
+                    if(!acc.includes(key)){
+                        acc.push(key);
+                    }
+                });
+                return acc;
+            }, []);
+
+            return allKeys.map(key => ({key ,text: key}));
+        }
     }
 
     renderHeaderRow(){
-        if(this.props.dataHeaders){
-            return (
-                <tr className="table-header">
-                    {this.props.dataHeaders.reduce((acc, header, index)=>{return [...acc, <th key={index}>{header.text}</th>]},[])}
-                </tr>
-            );
-        }
-        else {
-            return null;
-        }
+        return (
+            <tr className="table-header">
+                {this.getDataCellOrder().reduce((acc, header, index)=>{return [...acc, <th key={index}>{header.text}</th>]},[])}
+            </tr>
+        );
     }
 
     renderRow(rowData, index){
-        let innerRow;
-        if( this.props.dataHeaders) {
-            innerRow = this.props.dataHeaders.map((header,index)=><td key={index}>{rowData[header.key]}</td>);
-        } else {
-            innerRow = rowData.keys().map((key, index)=>{<td key={index}>{rowData[key]}</td>});
-        }
+        let innerRow = this.getDataCellOrder().map((header,index)=><td key={index}>{rowData[header.key]}</td>);
 
         return (
             <tr key={index}>{innerRow}</tr>
@@ -38,11 +47,12 @@ class Table extends React.Component {
     }
 
     render(){
-        const {data} = this.props;
+        const {data, printHeaderRow} = this.props;
+        console.log(this.props);
         return(
             <table>
                 <thead>
-                    {this.renderHeaderRow()}
+                    {printHeaderRow ? this.renderHeaderRow() : null}
                 </thead>
                 <tbody>
                     {data.map(this.renderRow)}
@@ -55,9 +65,10 @@ class Table extends React.Component {
 Table.propTypes = {
     dataHeaders: PropTypes.arrayOf(PropTypes.shape({
         key:PropTypes.string.isRequired,
-        text:PropTypes.string.isRequired})
+        text:PropTypes.string})
     ),
     data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    printHeaderRow: PropTypes.bool
 };
 
 export default Table;

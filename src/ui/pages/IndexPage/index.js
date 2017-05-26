@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Table from '../components/Table';
-import LeaderBoard from '../components/LeaderBoard';
-import Title from '../components/Title';
+import Table from '../../components/Table';
+import LeaderBoard from '../../components/LeaderBoard';
+import Title from '../../components/Title';
 
 class IndexPage extends React.Component {
     render() {

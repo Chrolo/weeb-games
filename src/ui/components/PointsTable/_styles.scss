@@ -1,0 +1,30 @@
+@import '../../styles/util.scss';
+
+//
+.points-table {
+    //background-color: white;
+    text-align: left;
+    font-size: 1.8rem;
+}
+
+.points-table-cell{
+    padding: 3px 5px;
+}
+.points-table-row{
+    border: thick solid rgba(0,0,0,0.5);
+    background-color: silver;
+
+    //formatting rows based on points values
+    $minPoints: 1;
+    $maxPoints: 10;
+    @for $i from $minPoints through $maxPoints {
+        &.points-#{$i} {
+            background-color: getStepColourHSL(green, red,$i, $maxPoints);
+        }
+    }
+
+}
+
+.points-table-header-row{
+    background-color: silver;
+}

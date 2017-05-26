@@ -1,10 +1,9 @@
 import path from 'path';
 import fs from 'fs';
 import React from 'react';
-import Promise from 'promise';
 import {renderToString} from 'react-dom/server';
 
-import IndexPage from '../../ui/pages/indexPage.js';
+import IndexPage from '../../ui/pages/IndexPage';
 import * as db from '../../data-model/db-connect.js';
 import createHtmlPage from '../../ui/htmlSkeleton.js';
 

@@ -1,1 +1,34 @@
+/**
+*
+*/
+@function getStepColourHSL($colour1, $colour2, $curStep, $totalSteps) {
+    $hue_diff: hue($colour2) - hue($colour1);
+    $sat_diff: saturation($colour2) - saturation($colour1);
+    $val_diff: lightness($colour2) - lightness($colour1);
+    $alpha_diff: alpha($colour2) - alpha($colour1);
 
+    @if $hue_diff > 180 {
+        $hue_diff: 180 - $hue_diff;
+    }
+
+    $hue: hue($colour1) + ($hue_diff * $curStep / $totalSteps);
+    $sat: saturation($colour1) + ($sat_diff * $curStep / $totalSteps);
+    $val: lightness($colour1) + ($val_diff * $curStep / $totalSteps);
+    $alpha: alpha($colour1) + ($alpha_diff * $curStep / $totalSteps);
+
+    @return hsla($hue, $sat, $val, $alpha);
+}
+
+@function getStepColourRGB($colour1, $colour2, $curStep, $totalSteps) {
+  $r_diff: red($colour2) - red($colour1);
+  $g_diff: green($colour2) - green($colour1);
+  $b_diff: blue($colour2) - blue($colour1);
+  $alpha_diff: alpha($colour2) - alpha($colour1);
+
+  $r: red($colour1) + ($r_diff * $curStep / $totalSteps);
+  $g: green($colour1) + ($g_diff * $curStep / $totalSteps);
+  $b: blue($colour1) + ($b_diff * $curStep / $totalSteps);
+  $alpha: alpha($colour1) + ($alpha_diff * $curStep / $totalSteps);
+
+  @return rgba($r,$g,$b, $alpha);
+}

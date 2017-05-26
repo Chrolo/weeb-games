@@ -3,8 +3,7 @@
 @import 'fonts.scss';
 
 // Component Styles:
-@import './components/index.scss';
-@import './components/table.scss';
+@import 'components.scss';
 
 //Base page setup (could be moved to another file)
 #reactRoot {
@@ -22,4 +21,8 @@
     max-width: 1000px;
     background-color: rgba(0,0,0,0.4);
     box-shadow: 0 0 5px 10px rgba(0,0,0,0.4);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -2,7 +2,7 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
-import config from './serverConfig.js';
+import config, {banner} from './serverConfig.js';
 
 //middleware
 import basicResponseRouter from './middleware/basicResponseSetup.js';
@@ -21,9 +21,12 @@ app.use('/',basicResponseRouter);
 app.get('/', indexRouter);
 
 //The simplest static serving:
-app.use('/user/:name', userRouter);
+app.use('/user', userRouter);
 app.use('/static', express.static(path.resolve(__dirname, '../../static')));
 
+
+
 app.listen(port, ()=>{
-    console.log(`Server started on ${port}`);
+    console.log(banner);
+    console.log(`Server started on http://localhost:${port}`);
 });

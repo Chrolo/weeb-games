@@ -1,0 +1,9 @@
+//Imports all styles from other components:
+
+@import '../components/LeaderBoard/styles.scss';
+@import '../components/Title/styles.scss';
+@import '../components/PointsTable/styles.scss';
+@import '../components/AddPointsForm/styles.scss';
+
+//Import Pages styles too
+@import '../pages/UserPage/styles.scss'

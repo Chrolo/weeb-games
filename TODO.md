@@ -1,12 +1,14 @@
 ## Because otherwise I forget shit.
-- add an ascii banner to server startup
-  - because everything needs a good ascii banner.
 - self initialising database.
-- Leaderboard links to `/user/:name`
+- implement loading user config from `/config/serverConfig.json`
+- add weeb-y image to page backgrounds.
 - `/user/:name`
-  - creating user in db if none found
   - html page render
     - display user points
+      - better styling for the points table
     - form to add more points
-
-- add weeb-y image to page backgrounds.
+      - styling for the form
+  - action to add strings when data is POSTed.
+  - link back to main page.
+- `/index`
+  - better styling configuration for leaderboard (i've had a better idea for implementing the same look)

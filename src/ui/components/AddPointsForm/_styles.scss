@@ -1,0 +1,46 @@
+
+@import '../../styles/fonts';
+
+.form-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &>span{
+        flex: 1 1 auto;
+    }
+}
+
+$padding: 10px;
+
+.form-input{
+    background-color: #777;
+    font-size: 1.3rem;
+    padding: $padding;
+    font-family: #{$mainFontFamily};
+    margin: 3px;
+    border: none;
+    flex: 3 0 auto;
+
+    &:focus{
+        background-color: #888;
+    }
+    &:hover{
+        background-color: #999;
+    }
+
+    &.numeric-input{
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 4rem;
+    }
+
+    &.text-input {
+    }
+}
+
+.form-submit{
+    font-size: 1.3rem;
+    padding: $padding;
+    flex: 2 0 auto;
+}
