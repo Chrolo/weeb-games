@@ -6,6 +6,8 @@ import config, {banner} from './serverConfig.js';
 
 //middleware
 import basicResponseRouter from './middleware/basicResponseSetup.js';
+import loggingRouter from './middleware/loggingRouter.js';
+import errorRouter from './middleware/errorRouter.js';
 
 //routes
 import indexRouter from './routes/indexPageRouter.js';
@@ -16,6 +18,7 @@ const port = process.env['NODE_PORT'] || config.port;
 
 //Apply middleware
 app.use('/',basicResponseRouter);
+app.use('/', loggingRouter);
 
 // Define routes.
 app.get('/', indexRouter);
@@ -24,6 +27,8 @@ app.get('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/static', express.static(path.resolve(__dirname, '../../static')));
 
+//Error handling:
+app.use('/', errorRouter);
 
 
 app.listen(port, ()=>{

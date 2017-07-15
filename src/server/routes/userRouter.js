@@ -34,14 +34,29 @@ const UserRouter = express.Router();
 UserRouter.use(bodyParser.json());
 UserRouter.use(bodyParser.urlencoded({ extended: true }));
 
+UserRouter.route('/').post((req,res)=>{
+    console.log('caught a post to UserRoute.');
+    console.log({params:req.params, body: req.body});
+    //actually, just send them to the GET route, so that form is correct:
+    res.redirect(301,`/user/${req.body.name}`);
+});
+
 UserRouter.route('/:name')
-    .post((req, res)=>{
+    .post((req, res, next)=>{
         console.log(`[UserRouter] someone posted to ${req.params.name}`);
         console.info('body was:\n',req.body);
-        //update the database:
+        const name = req.params.name;
+        const {reason, points} = req.body;
+        //Validate and clean the data:
 
-        //then send them the updated page.
-        sendUserPage(req,res);
+
+        //update the database:
+        const ret = db.addNewPointsStringToUser(name, reason, points).then(
+            ()=>{
+                //then send them the updated page.
+                sendUserPage(req,res);
+            }
+        );
     })
     .get(sendUserPage);
 

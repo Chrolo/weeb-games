@@ -8,13 +8,10 @@ import * as db from '../../data-model/db-connect.js';
 import createHtmlPage from '../../ui/htmlSkeleton.js';
 
 
-export default function IndexRouter (req, res) {
-
-    //add content-type:
-    //res.setHeader('Content-Type', 'text/html');
+export default function IndexRouter (req, res, next) {
 
     //get data:
-    const users = db.getTopUsersByPointCount(5);
+    const users = db.getTopUsersByPointCount();
 
     users.then((data)=>{
         //render the page:
@@ -23,7 +20,7 @@ export default function IndexRouter (req, res) {
         res.send(renderedHtml);
     }).catch((error)=>{
         res.status(500);
-        console.error('indexPageRouter: Error retrieving user data.', error);
-        res.send('Something Went wrong ;_;');
+        console.error('[indexPageRouter] Error retrieving LeaderBoard data.', error);
+        next();
     });
 }

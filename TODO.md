@@ -1,14 +1,16 @@
 ## Because otherwise I forget shit.
 - self initialising database.
-- implement loading user config from `/config/serverConfig.json`
 - add weeb-y image to page backgrounds.
 - `/user/:name`
   - html page render
     - display user points
       - better styling for the points table
+      - change styling to gradient from -10 to +10 points
     - form to add more points
       - styling for the form
   - action to add strings when data is POSTed.
   - link back to main page.
 - `/index`
   - better styling configuration for leaderboard (i've had a better idea for implementing the same look)
+- logging
+  - define tiered logging structure

@@ -1,5 +1,43 @@
+@import "../../styles/media-queries.scss";
+
 //UserPage Styling
-.user-is-weeb-span{
+.user-is-weeb-span {
     color: white;
     font-size: 2rem;
+}
+
+.back-button{
+    color: #DDD;
+    flex: 0 0 auto;
+    display: block;
+    padding:5px 9px;
+    text-decoration: none;
+    font-size: 1.4rem;
+
+    &:hover{
+        color: #EEE;
+    }
+    &:active, &:focus{
+        color: #FFF;
+    }
+
+
+}
+.back-button-bar{
+    position: relative;
+    top: -10px;
+    width: 100vw;
+    margin-bottom: 10px;
+    display: flex;
+    align-content: flex-start;
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: 0 3px 5px 0;
+    border-bottom: thin solid rgba(0,0,0,0.3);
+
+    @media #{$mq-medium} {
+        width: 100%;
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
 }

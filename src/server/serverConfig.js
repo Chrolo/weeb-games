@@ -12,8 +12,17 @@ const defaultConfig = {
 };
 
 function getUserServerConfig(){
-    console.error('>>>getUserServerConfig not yet implemented');
-    return defaultConfig;
+    const serverConfigFilePath = path.resolve(__dirname, '../../config/serverConfig.json');
+    if(fs.existsSync(serverConfigFilePath)){
+         const configFile = fs.readFileSync(serverConfigFilePath, "utf8");
+
+         const userConfig = JSON.parse(configFile);
+
+         //return default config, overlaid with the user's config.
+         return Object.assign({},defaultConfig,userConfig);
+     } else {
+         return defaultConfig;
+     }
 }
 
 const config = getUserServerConfig();

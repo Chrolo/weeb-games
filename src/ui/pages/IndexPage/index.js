@@ -3,6 +3,7 @@ import React from 'react';
 import Table from '../../components/Table';
 import LeaderBoard from '../../components/LeaderBoard';
 import Title from '../../components/Title';
+import NewPersonForm from '../../components/NewPersonForm';
 
 class IndexPage extends React.Component {
     render() {
@@ -18,6 +19,7 @@ class IndexPage extends React.Component {
                         data={this.props.users}
                         dataHeaders={tableDataHeaders}
                     />
+                    <NewPersonForm/>
                 </div>
             );
         }

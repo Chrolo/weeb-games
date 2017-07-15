@@ -4,5 +4,7 @@
     "defaultResponseHeaders": [
         {"key":"Access-Control-Allow-Origin", "value":"*"},
         {"key":"Content-Security-Policy", "value":"font-src *;"}
-    ]
+    ],
+
+    "logLevel": 2
 }

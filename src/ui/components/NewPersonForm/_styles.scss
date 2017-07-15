@@ -37,15 +37,6 @@ $padding: 10px;
     &:hover{
         background-color: #999;
     }
-
-    &.numeric-input{
-        flex-grow: 0;
-        flex-shrink: 0;
-        width: 4rem;
-    }
-
-    &.text-input {
-    }
 }
 .form-label{
     color: white;
@@ -59,10 +50,6 @@ $padding: 10px;
     border-radius: 5px;
     background-color: #DDD;
     text-shadow: grey 0 1px 3px;
-
-    &:hover {
-        background-color: #EEE;
-    }
 
     &:focus, &:active {
         background-color: #FFF;

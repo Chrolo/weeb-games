@@ -15,10 +15,10 @@
     background-color: silver;
 
     //formatting rows based on points values
-    $minPoints: 1;
-    $maxPoints: 10;
+    $minPoints: 0;
+    $maxPoints: 20;
     @for $i from $minPoints through $maxPoints {
-        &.points-#{$i} {
+        &.points-#{$i - 10} {
             background-color: getStepColourHSL(green, red,$i, $maxPoints);
         }
     }

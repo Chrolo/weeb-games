@@ -14,18 +14,19 @@ class UserPage extends React.Component {
         ];
 
         return (
-            <div className="page">
-                <Title>{name}</Title>
-                <span className="user-is-weeb-span">
-                    is a weeb because:
-                </span>
-                <Table
-                    data={strings}
-                    dataHeaders={dataHeaders}
-                    printHeaderRow
-                />
-                <AddPointsForm/>
-            </div>
+                <div className="page">
+                    <div className="back-button-bar"><a className="back-button" href="/">Back</a></div>
+                    <Title>{name}</Title>
+                    <span className="user-is-weeb-span">
+                        has {points} weeb points because:
+                    </span>
+                    <Table
+                        data={strings}
+                        dataHeaders={dataHeaders}
+                        printHeaderRow
+                    />
+                    <AddPointsForm/>
+                </div>
         );
     }
 }
